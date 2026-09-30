@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Сотрудник Деканата" as Dean
+actor "Администратор" as Admin
+
+Admin --|> Dean
+
+rectangle "Система учета результатов экзаменов" {
+  usecase "Вход в систему" as UC_Login
+  usecase "Ввод и редактирование оценок" as UC_Grades
+  usecase "Расчет среднего балла" as UC_Calc
+  usecase "Поиск карточки студента" as UC_Search
+  usecase "Формирование ведомости" as UC_Report
+  usecase "Выгрузка справки" as UC_Export
+  usecase "Регистрация студентов" as UC_Reg
+  usecase "Управление аккаунтами студентов" as UC_Acc
+  usecase "Редактирование справок о студентах" as UC_EditDoc
+
+  Dean --> UC_Grades
+  Dean --> UC_Search
+  Dean --> UC_Report
+  Dean --> UC_Login
+
+  Admin --> UC_Login
+  Admin --> UC_Reg
+  Admin --> UC_Acc
+  Admin --> UC_EditDoc
+
+  UC_Grades .> UC_Calc : <<include>>
+  UC_Report .> UC_Export : <<extend>>
+}
+@enduml
