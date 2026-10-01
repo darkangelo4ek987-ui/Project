@@ -18,15 +18,15 @@ rectangle "Система учета результатов экзаменов" 
   usecase "Управление аккаунтами студентов" as UC_Acc
   usecase "Редактирование справок о студентах" as UC_EditDoc
 
-  Dean --> UC_Grades
-  Dean --> UC_Search
-  Dean --> UC_Report
-  Dean --> UC_Login
+  Dean -- UC_Grades
+  Dean -- UC_Search
+  Dean -- UC_Report
+  Dean -- UC_Login
 
-  Admin --> UC_Login
-  Admin --> UC_Reg
-  Admin --> UC_Acc
-  Admin --> UC_EditDoc
+  Admin -- UC_Login
+  Admin -- UC_Reg
+  Admin -- UC_Acc
+  Admin -- UC_EditDoc
 
   UC_Grades .> UC_Calc : <<include>>
   UC_Report .> UC_Export : <<extend>>
