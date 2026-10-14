@@ -3,3 +3,10 @@
 *.obj
 .vscode/
 build/
+out/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+.idea/
+.DS_Store
