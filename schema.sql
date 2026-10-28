@@ -78,8 +78,8 @@ INSERT INTO UserRole (name) VALUES
 
 -- Пользователи системы (без лишнего balance)
 INSERT INTO "User" (name, surname, patronymic, password_hash, user_role) VALUES
-    ('Егор', 'Алешин', 'Викторович', 'hash_pass_123', 1),
-    ('Валерия', 'Кулясова', 'Павловна', 'hash_pass_456', 2);
+    ('Егор', 'Алешин', 'Викторович', '123', 1),
+    ('Валерия', 'Кулясова', 'Павловна', '456', 2);
 
 -- Группы
 INSERT INTO "Group" (name, course, specialty) VALUES
@@ -94,9 +94,9 @@ INSERT INTO Discipline (name, control_type) VALUES
 
 -- Студенты
 INSERT INTO Student (full_name, record_book_number, birth_date, group_id) VALUES
-    ('Алешин Е.В.', '26-ИВТ-001', '2008-05-13', 1),
+    ('Смирнов А.В.', '25-ИВТ-001', '2008-06-17', 2),
     ('Кулибин И.Г.', '26-ИВТ-002', '2007-03-19', 1),
-    ('Иванов И.А.', '25-ИВТ-003', '2008-04-15', 2);
+    ('Иванов И.А.', '25-ИВТ-003', '2008-04-15', 1);
 
 -- Результаты экзаменов
 INSERT INTO ExamResult (student_id, discipline_id, grade, exam_date, semester, is_retake) VALUES
