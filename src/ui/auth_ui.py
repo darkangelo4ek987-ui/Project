@@ -1,4 +1,4 @@
-from services import auth_service
+from src.services import auth_service
 
 def login():
     print("\n=== АВТОРИЗАЦИЯ В СИСТЕМЕ ===")

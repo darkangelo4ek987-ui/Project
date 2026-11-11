@@ -1,5 +1,5 @@
-from repositories import user_repository
-from models.user import User
+from src.repositories import user_repository
+from src.models.user import User
 
 def authenticate(name: str, password_hash: str) -> User | None:
     users = user_repository.get_all()

@@ -1,5 +1,5 @@
 from database.database import get_connection
-from models.student import Student
+from src.models.student import Student
 
 def _map(row) -> Student:
     return Student(

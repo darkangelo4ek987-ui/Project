@@ -1,5 +1,5 @@
 from database.database import get_connection
-from models.user import User
+from src.models.user import User
 
 def _map(row) -> User:
     return User(

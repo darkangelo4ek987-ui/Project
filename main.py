@@ -1,4 +1,4 @@
-from ui import main_menu
+from src.ui import main_menu
 
 if __name__ == "__main__":
     main_menu.run()

@@ -1,5 +1,5 @@
 from database.database import get_connection
-from models.exam_result import ExamResult
+from src.models.exam_result import ExamResult
 
 def _map(row) -> ExamResult:
     return ExamResult(
