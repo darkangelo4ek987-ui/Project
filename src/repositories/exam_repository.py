@@ -33,3 +33,10 @@ def create(student_id: int, discipline_id: int, grade: int, exam_date: str, seme
     """, (student_id, discipline_id, grade, exam_date, semester, is_retake))
     conn.commit()
     conn.close()
+
+def delete(result_id: int):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM ExamResult WHERE result_id = ?", (result_id,))
+    conn.commit()
+    conn.close()

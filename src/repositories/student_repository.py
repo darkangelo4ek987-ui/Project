@@ -44,3 +44,10 @@ def create(full_name: str, record_book_number: str, birth_date: str, group_id: i
     """, (full_name, record_book_number, birth_date, group_id))
     conn.commit()
     conn.close()
+
+def delete(student_id: int):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Student WHERE student_id = ?", (student_id,))
+    conn.commit()
+    conn.close()
