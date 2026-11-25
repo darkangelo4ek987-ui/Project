@@ -51,3 +51,17 @@ def delete(student_id: int):
     cur.execute("DELETE FROM Student WHERE student_id = ?", (student_id,))
     conn.commit()
     conn.close()
+
+
+
+from database.database import get_connection
+
+
+def get_by_id(student_id: int):
+    conn = get_connection()
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM Student WHERE student_id = ?", (student_id,))
+        return cur.fetchone()
+    finally:
+        conn.close()

@@ -54,3 +54,24 @@ def delete_by_id(exam_id: int) -> bool:
         return cur.rowcount > 0
     finally:
         conn.close()
+
+
+
+def discipline_exists(discipline_id: int) -> bool:
+    conn = get_connection()
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT 1 FROM Discipline WHERE discipline_id = ?", (discipline_id,))
+        return cur.fetchone() is not None
+    finally:
+        conn.close()
+
+
+def student_exists(student_id: int) -> bool:
+    conn = get_connection()
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT 1 FROM Student WHERE student_id = ?", (student_id,))
+        return cur.fetchone() is not None
+    finally:
+        conn.close()
