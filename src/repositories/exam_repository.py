@@ -40,3 +40,17 @@ def delete(result_id: int):
     cur.execute("DELETE FROM ExamResult WHERE result_id = ?", (result_id,))
     conn.commit()
     conn.close()
+
+
+from database.database import get_connection
+
+
+def delete_by_id(exam_id: int) -> bool:
+    conn = get_connection()
+    try:
+        cur = conn.cursor()
+        cur.execute("DELETE FROM ExamResult WHERE id = ?", (exam_id,))  # проверьте имя таблицы и PK (id / exam_result_id)
+        conn.commit()
+        return cur.rowcount > 0
+    finally:
+        conn.close()
