@@ -12,3 +12,17 @@ def add_exam_result(student_id: int, discipline_id: int, grade: int, exam_date: 
         
     # 3. Сохраняем в базу данных через репозиторий
     exam_repository.create(student_id, discipline_id, grade, exam_date, semester, is_retake)
+
+from src.repositories import exam_repository
+
+
+def delete_exam_result(exam_id: int, role_id: int | None = None) -> None:
+    if role_id is not None and role_id not in (1, 2):
+        raise PermissionError("Недостаточно прав для удаления результата экзамена")
+
+    if not isinstance(exam_id, int) or exam_id <= 0:
+        raise ValueError("ID результата экзамена должен быть положительным числом")
+
+    deleted = exam_repository.delete_by_id(exam_id)
+    if deleted is False:
+        raise ValueError(f"Запись с ID {exam_id} не найдена")
